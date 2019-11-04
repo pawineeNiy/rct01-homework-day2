@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
-import FilmPoster from './FilmPoster';
+import '../App.css';
+import '../index.css';
 
+import FilmPoster from './FilmPoster'
+import Fave from "./Fave";
 class FilmRow extends Component {
-  render() {
-    const year = new Date(this.props.film.release_date).getFullYear();
-    return(
-      <div className="film-row">
-        <FilmPoster posterPath={this.props.film.poster_path} />
-        <div className="film-summary">
-          <h1>{this.props.film.title}</h1>
-          <p>{year}</p>
-        </div>
-      </div>
-    )
-  }
+    handleDetailsClick = () => { };
+    render() {
+        let { title, release_date, poster_path } = this.props
+        let year = new Date(release_date);
+        let fullyear = year.getFullYear();
+        let posterUrl = <FilmPoster
+            poster_path={poster_path}
+            title={title}
+        />
+        return (
+            <div className="film-row">
+                {posterUrl}
+                <div className="film-summary">
+                    <h1>{title}</h1>
+                    <p>{fullyear}</p>
+                </div>
+                <Fave />
+            </div>
+        );
+    }
 }
 
 export default FilmRow;

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-
+import '../App.css';
+import '../index.css';
 class FilmDetails extends Component {
   render() {
-    return(
+    return (
       <div className="film-details">
         <h1 className="section-title">DETAILS</h1>
       </div>
-    )
+
+    );
   }
 }
 
